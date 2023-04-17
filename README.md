@@ -18,6 +18,7 @@ Image Browser is a simple QT based image browser that provides some basic featur
 >**Mari Quick Install Guide**
 >>Copy the contents of the plugin to mari scripts folder: "\~/Mari/Scripts/imagebrowser"<br>
 >>Then copy the init file into the same mari scripts folder: "\~/Mari/Scripts/mari_imagebrowser_init.py"<br>
+>>NOTE: If downloading repo zip from github, make the folder "\~/Mari/Scripts/imagebrowser" first and copy zip the contents into it.
 >
 >Alternatively, you can install the imagebrowser module in an arbitrary location and add path to the PYTHONPATH and build your own init solution.
 
