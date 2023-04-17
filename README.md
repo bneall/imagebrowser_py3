@@ -28,7 +28,7 @@ Image Browser is a simple QT based image browser that provides some basic featur
 > Thumbnails are stored in **\~/imagebrowsercache** by default, so Windows or Linux you will find it in your "Home" user directory.<br>
 > If you wish to move your thumbnail cache, simply copy paste the thumbcache folder to a new location, and in the plugin's preferences, change the cache location to the new path.
 >
->> It is **HIGHLY** recommended that you download and install the **imagemagick** library to greatly increase the file fomrat support for thumbnails, see below for converter information.
+>> It is **HIGHLY** recommended that you download and install the [**imagemagick**](https://imagemagick.org/script/download.php) library to greatly increase the file fomrat support for thumbnails, see below for converter information.
 >
 > If you have multiple users, you can create a network path for this cache and have all users point to it, this will speed up thumbnail creation and allow for faster browsing.
 
