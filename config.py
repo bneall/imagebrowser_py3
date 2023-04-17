@@ -207,7 +207,7 @@ class Config(object):
     def loadConfig(self):
         try:
             with open(self.configpath, 'r') as configFile:
-                configData = json.load(configFile)
+                configData = json.load(configFile, strict=False)
 
                 # update config
                 self.updateConfig(configData)
