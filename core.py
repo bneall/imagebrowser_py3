@@ -92,8 +92,6 @@ class ThumbnailProperty(object):
     def __init__(self, inPath, outFormat, cacheLocation):
         super(ThumbnailProperty, self).__init__()
 
-        inPath = inPath.encode('utf-8')
-
         # Source
         self.sourcePath = os.path.normpath(inPath)
         self.sourceExt = self.sourcePath.split(os.extsep)[-1]
@@ -102,15 +100,12 @@ class ThumbnailProperty(object):
         self.sourceName, self.sourceDotExt = os.path.splitext(self.sourceFile)
 
         # UUID
-        self.uuid = hashlib.md5(self.sourcePath).hexdigest()
+        self.uuid = hashlib.md5(self.sourcePath.encode()).hexdigest()
 
         # Thumbnail
         self.thumbnailExt = outFormat.lower()
         self.thumbnailFile = os.extsep.join([self.uuid, self.thumbnailExt])
         self.thumbnailPath = os.path.join(cacheLocation, self.thumbnailFile)
-
-        self.sourcePath = self.sourcePath.decode('utf-8')
-        self.sourceName = self.sourceName.decode('utf-8')
 
         # Check if file exists
         self.exists = False

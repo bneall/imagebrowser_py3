@@ -2,15 +2,12 @@
 # Conversion: Qt
 #
 
-import time
-
 def run(tp, size):
 
-    # from Qt import QtGui, QtCore
     from PySide2 import QtGui, QtCore
 
     QtImgReader = QtGui.QImageReader()
-    qt_formats = [str(f).lower() for f in QtGui.QImageReader.supportedImageFormats()]
+    qt_formats = [ f.data().decode().lower() for f in QtGui.QImageReader.supportedImageFormats()]
     QtImgReader.setFileName(tp.sourcePath)
 
     if QtImgReader.canRead() and tp.sourceExt.lower() in qt_formats:

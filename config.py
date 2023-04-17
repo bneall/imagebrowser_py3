@@ -206,7 +206,7 @@ class Config(object):
     #_____________________________________________________________
     def loadConfig(self):
         try:
-            with open(self.configpath) as configFile:
+            with open(self.configpath, 'r') as configFile:
                 configData = json.load(configFile)
 
                 # update config
@@ -215,17 +215,19 @@ class Config(object):
             utils.info('Loaded Config')
             return True
         except Exception as e:
+            # raise
             utils.warn(e)
             return False
 
     #_____________________________________________________________
     def saveConfig(self):
         try:
-            with open(self.configpath, 'wb') as configFile:
+            with open(self.configpath, 'w') as configFile:
                 json.dump(self.config, configFile)
             
             utils.info('Saved Config')
             return True
         except Exception as e:
+            # raise
             utils.warn(e)
             return False

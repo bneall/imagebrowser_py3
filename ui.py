@@ -730,7 +730,7 @@ class IBImageList(QtWidgets.QListWidget):
 class IBView(QtWidgets.QWidget):
     '''Central Custom Widget for IBView, handles
     layout and communication between all UI widgets'''
-    def __init__(self, mimeHandler=None, parent=None):
+    def __init__(self, mimeHandler=None, materialIngester=None, parent=None):
         super(IBView, self).__init__(parent)
 
         mainLayout = QtWidgets.QVBoxLayout()
@@ -774,6 +774,7 @@ class IBView(QtWidgets.QWidget):
         iconSizeActionGroup.addAction(self.mediumIconSizeAction)
         iconSizeActionGroup.addAction(self.largeIconSizeAction)
         self.toolbar.addSeparator()
+        self.toolbar.addSeparator()
         self.toolbar.addAction(refreshCurrentIcon, "Refresh Thumbnails", lambda: self.refreshThumbnails(True))
         self.toolbar.addAction(configIcon, "Configure", self.showConfig)
 
@@ -783,13 +784,14 @@ class IBView(QtWidgets.QWidget):
         self.pathEdit = QtWidgets.QLineEdit()
         self.pathEdit.setCompleter(completer)
 
-        # Splitters
+        # Browser Splitter
         browserSplitter = QtWidgets.QSplitter()
         browserSplitter.addWidget(self.bookmarkView)
         browserSplitter.addWidget(self.browserView)
         browserSplitter.setOrientation(QtCore.Qt.Vertical)
         browserSplitter.setSizes([300,800])
 
+        # View Splitter
         viewSplitter = QtWidgets.QSplitter()
         viewSplitter.addWidget(browserSplitter)
         viewSplitter.addWidget(self.imageView)
